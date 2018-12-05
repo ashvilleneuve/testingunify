@@ -1,0 +1,7 @@
+# https://services.shopify.io/services/resourcify/production
+director: dneufeld
+owners:
+- Brydom
+production:
+  classification: tier4
+url: https://unify.shopifycloud.com
