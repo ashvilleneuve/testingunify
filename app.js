@@ -7,6 +7,8 @@ const app = express();
 const errorHandlers = require("./handlers/errorHandlers");
 const routes = require("./routes/index");
 
+const port = 8080;
+
 app.use(express.static(__dirname + '/public'));
 // Handlebars Middleware
 app.engine('handlebars', exphbs({
@@ -15,7 +17,8 @@ app.engine('handlebars', exphbs({
 
 app.set('view engine', 'handlebars');
 
-app.use("/", routes);
+// app.use("/", routes);
+app.get('/', (req, res) => res.send('Hello World!'))
 
 // If that above routes didnt work, we 404 them and forward to error handler
 app.use(errorHandlers.notFound);
