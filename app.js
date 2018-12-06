@@ -18,7 +18,10 @@ const port = 8080;
 // app.set('view engine', 'handlebars');
 //
 // // app.use("/", routes);
-// app.get('/', (req, res) => res.send('Hello World!'))
+app.get('/services/ping', (req, res) => {
+  res.sendStatus(200)
+})
+app.get('/', (req, res) => res.send('Hello World!'))
 //
 // // If that above routes didnt work, we 404 them and forward to error handler
 // app.use(errorHandlers.notFound);
