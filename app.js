@@ -17,7 +17,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 
 // setup all get and post requests in the index.js file
-app.all("*", routes);
+app.use("/", routes);
 
 // Setup header that is returned to client - allowing cross origin requests
 app.use(function(req, res, next) {

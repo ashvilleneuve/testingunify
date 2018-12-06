@@ -1,8 +1,10 @@
-const express = require("express");
+const routes = require('express').Router();
 
-app.get('/', (req, res) => res.send('Hello Unify!'))
+routes.get('/', (req, res) => res.send('Hello Unify!'))
 
 //  Services Ping, required by Shopify Cloudplatform
-app.get("/services/ping", (req, res) => {
+routes.get("/services/ping", (req, res) => {
     res.sendStatus(200)
 });
+
+module.exports = routes;
