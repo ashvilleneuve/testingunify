@@ -32,5 +32,13 @@ if (app.get("env") === "development") {
 // production error handler
 app.use(errorHandlers.productionErrors);
 
+// Setup http server
+app.listen(port, (err) => {
+  if (err) {
+    return console.log('something bad happened', err)
+  }
+  console.log(`server is listening on ${port}`)
+})
+
 // done! we export it so we can start the site in start.js
 module.exports = app;
