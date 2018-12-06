@@ -1,4 +1,5 @@
 const express = require('express');
+var bodyParser = require('body-parser');
 // const exphbs = require('express-handlebars');
 // const request = require("request");
 
@@ -18,6 +19,9 @@ const port = 8080;
 // app.set('view engine', 'handlebars');
 //
 // // app.use("/", routes);
+// Parse incoming request bodies- makes requests available using "req.body"
+app.use(bodyParser.json());
+
 app.get('/services/ping', (req, res) => {
   res.sendStatus(200)
 })
