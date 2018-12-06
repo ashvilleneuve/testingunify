@@ -19,6 +19,14 @@ const port = 8080;
 // app.set('view engine', 'handlebars');
 //
 // // app.use("/", routes);
+
+// Setup header that is returned to client - allowing cross origin requests
+app.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
+});
+
 // Parse incoming request bodies- makes requests available using "req.body"
 app.use(bodyParser.json());
 
