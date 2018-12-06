@@ -33,7 +33,7 @@ app.use(bodyParser.json());
 app.get('/services/ping', (req, res) => {
   res.sendStatus(200)
 })
-app.get('/hello', (req, res) => res.send('Hello World!'))
+app.get('/', (req, res) => res.send('Hello World!'))
 //
 // // If that above routes didnt work, we 404 them and forward to error handler
 // app.use(errorHandlers.notFound);
@@ -51,7 +51,7 @@ app.get('/hello', (req, res) => res.send('Hello World!'))
 // app.use(errorHandlers.productionErrors);
 
 // Setup http server
-app.listen(port, (err) => {
+app.listen(0, (err) => {
   if (err) {
     return console.log('something bad happened', err)
   }
@@ -59,4 +59,4 @@ app.listen(port, (err) => {
 })
 
 // done! we export it so we can start the site in start.js
-module.exports = app;
+// module.exports = app;
