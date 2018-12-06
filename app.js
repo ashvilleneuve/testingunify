@@ -1,24 +1,23 @@
 const express = require('express');
 var bodyParser = require('body-parser');
-// const exphbs = require('express-handlebars');
-// const request = require("request");
 
 // Internal config variables
 const app = express();
-// const errorHandlers = require("./handlers/errorHandlers");
-// const routes = require("./routes/index");
+const errorHandlers = require("./handlers/errorHandlers");
+const routes = require("./routes/index");
+const port = 8000;
 
-const port = 8080;
 
-// app.use(express.static(__dirname + '/public'));
-// // Handlebars Middleware
-// app.engine('handlebars', exphbs({
-//     defaultLayout: 'main'
-// }));
-//
-// app.set('view engine', 'handlebars');
-//
-// // app.use("/", routes);
+// MIDDLEWARE SETUP
+
+// To serve static files such as images, CSS files, and JavaScript files,
+app.use(express.static(__dirname + '/public'));
+
+// Parse incoming request bodies- makes requests available using "req.body"
+app.use(bodyParser.json());
+
+// setup all get and post requests in the index.js file
+app.all("*", routes);
 
 // Setup header that is returned to client - allowing cross origin requests
 app.use(function(req, res, next) {
@@ -27,13 +26,6 @@ app.use(function(req, res, next) {
   next();
 });
 
-// Parse incoming request bodies- makes requests available using "req.body"
-app.use(bodyParser.json());
-
-app.get('/services/ping', (req, res) => {
-  res.sendStatus(200)
-})
-app.get('/', (req, res) => res.send('Hello World!'))
 //
 // // If that above routes didnt work, we 404 them and forward to error handler
 // app.use(errorHandlers.notFound);
@@ -58,5 +50,5 @@ app.listen(8000, (err) => {
   console.log(`server is listening on ${port}`)
 })
 
-// done! we export it so we can start the site in start.js
-// module.exports = app;
+// export this for use in other files
+module.exports = app;
