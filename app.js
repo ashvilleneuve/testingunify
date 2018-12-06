@@ -51,7 +51,7 @@ app.get('/', (req, res) => res.send('Hello World!'))
 // app.use(errorHandlers.productionErrors);
 
 // Setup http server
-app.listen(0, (err) => {
+app.listen(8000, (err) => {
   if (err) {
     return console.log('something bad happened', err)
   }
