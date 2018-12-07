@@ -5,7 +5,7 @@
 <body>
   
   <script>
-function oauthSignIn() {
+$( document ).ready(function() {
   // Google's OAuth 2.0 endpoint for requesting an access token
   var oauth2Endpoint = 'https://accounts.google.com/o/oauth2/v2/auth';
 
@@ -35,7 +35,10 @@ function oauthSignIn() {
   document.body.appendChild(form);
   document.body.appendChild("you");
   form.submit();
-}
+  console.log( "ready!" );
+});
+
+
 </script>
 </body>
 </html>
