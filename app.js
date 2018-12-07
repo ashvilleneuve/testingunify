@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 const app = express();
 const errorHandlers = require("./handlers/errorHandlers");
 const routes = require("./routes/index");
-const port = 8000;
+const port = (process.env.PORT || 8000);
 
 
 // MIDDLEWARE SETUP
@@ -45,7 +45,7 @@ app.use(function(req, res, next) {
 // app.use(errorHandlers.productionErrors);
 
 // Setup http server
-app.listen(8000, (err) => {
+app.listen((process.env.PORT || 8000), (err) => {
   if (err) {
     return console.log('something bad happened', err)
   }
