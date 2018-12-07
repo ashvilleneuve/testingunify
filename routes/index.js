@@ -1,6 +1,6 @@
 const routes = require('express').Router();
 
-routes.get('/', (req, res) => res.send('Hello Unify!'))
+routes.get('/', (req, res) => res.render('auth.ejs'))
 //adding the fl-form page
 routes.get('/forms', (req, res) => res.render('fl-form.ejs'))
 
