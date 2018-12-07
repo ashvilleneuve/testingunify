@@ -15,9 +15,11 @@ app.use(express.static(__dirname + '/public'));
 
 // Parse incoming request bodies- makes requests available using "req.body"
 app.use(bodyParser.json());
+app.set('view engine', 'ejs');
 
 // setup all get and post requests in the index.js file
 app.use("/", routes);
+app.use("/forms", routes);
 
 // Setup header that is returned to client - allowing cross origin requests
 app.use(function(req, res, next) {
